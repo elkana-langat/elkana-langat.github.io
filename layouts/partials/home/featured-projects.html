@@ -1,0 +1,89 @@
+{{/* Featured Projects Section */}}
+{{ if .Site.Params.homepage.showFeaturedProjects }}
+{{ $projects := where .Site.RegularPages "Section" "projects" }}
+{{ $featured := where $projects ".Params.featured" true }}
+{{ if $featured }}
+<section class="mt-16 mb-16 px-4 sm:px-0 max-w-7xl mx-auto">
+  <div class="flex items-center justify-between mb-6">
+    <h2 class="text-2xl font-bold text-neutral-800 dark:text-neutral-200">Featured Projects</h2>
+    <a href="/projects/" class="text-primary-600 dark:text-primary-400 hover:underline text-sm font-medium">
+      View all projects →
+    </a>
+  </div>
+
+  <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    {{ range first 3 (sort $featured "Date" "desc") }}
+    <article
+      class="flex flex-col rounded-lg border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 hover:shadow-lg transition-shadow duration-200">
+      <div class="flex-1 p-6 space-y-3">
+
+        <!-- Title -->
+        <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+          <a href="{{ .RelPermalink }}" class="hover:underline hover:text-primary-600 dark:hover:text-primary-400">
+            {{ .Title }}
+          </a>
+        </h3>
+
+        <!-- Summary -->
+        <p class="text-sm text-neutral-600 dark:text-neutral-400 line-clamp-2">
+          {{ .Summary | plainify | truncate 120 }}
+        </p>
+
+        <!-- Metadata: Role • Duration -->
+        {{ if or .Params.role .Params.duration }}
+        <div class="flex items-center gap-2 text-xs text-neutral-500 dark:text-neutral-500">
+          {{ if .Params.role }}
+          <span class="truncate">{{ .Params.role }}</span>
+          {{ end }}
+          {{ if and .Params.role .Params.duration }}
+          <span>•</span>
+          {{ end }}
+          {{ if .Params.duration }}
+          <span>{{ .Params.duration }}</span>
+          {{ end }}
+        </div>
+        {{ end }}
+
+        <!-- Tech Stack OR Tags (never both) -->
+        {{ if .Params.tech_stack }}
+        <!-- Show tech_stack if available -->
+        <div class="flex flex-wrap gap-2">
+          {{ range first 4 .Params.tech_stack }}
+          <span
+            class="inline-block px-2 py-1 text-xs rounded-md bg-neutral-200 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300">
+            {{ . }}
+          </span>
+          {{ end }}
+          {{ if gt (len .Params.tech_stack) 4 }}
+          <span class="inline-block px-2 py-1 text-xs text-neutral-500">
+            +{{ sub (len .Params.tech_stack) 4 }} more
+          </span>
+          {{ end }}
+        </div>
+        {{ else if .Params.tags }}
+        <!-- Show tags only if tech_stack doesn't exist -->
+        <div class="flex flex-wrap gap-2">
+          {{ range first 4 .Params.tags }}
+          <span
+            class="inline-block px-2 py-1 text-xs rounded-md bg-neutral-200 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300">
+            {{ . }}
+          </span>
+          {{ end }}
+        </div>
+        {{ end }}
+
+      </div>
+
+      <!-- CTA -->
+      <div class="border-t border-neutral-200 dark:border-neutral-700 px-6 py-4">
+        <a href="{{ .RelPermalink }}"
+          class="text-sm font-medium text-primary-600 dark:text-primary-400 hover:text-primary-500 dark:hover:text-primary-300">
+          Read case study →
+        </a>
+      </div>
+    </article>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+{{ end }}
