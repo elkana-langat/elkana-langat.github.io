@@ -1,0 +1,28 @@
+disabled = false
+languageCode = "en"
+languageName = "English"
+weight = 1
+title = "Elkana Lang'at"
+
+[params]
+  displayName = "EN"
+  isoCode = "en"
+  rtl = false
+  dateFormat = "2 January 2006"
+  # logo = "img/logo.png"
+  # secondaryLogo = "img/secondary-logo.png"
+  # description = "My awesome website"
+  # copyright = "Copy, _right?_ :thinking_face:"
+
+[params.author]
+  name = "Elkana Lang'at"
+  email = "elkanahlangatt@gmail.com"
+  image = "img/avatar.jpg"
+  imageQuality = 96
+  headline = "Cloud Security & IT Professional"
+  bio = "Specializing in cloud infrastructure security, compliance frameworks, and secure DevOps practices. Passionate about building resilient systems and automating security at scale."
+  links = [
+    { email = "mailto:elkanahlangatt@gmail.com" },
+    { linkedin = "https://www.linkedin.com/in/elkana-langat" },
+    { github = "https://github.com/elkana-langat" },
+  ]
