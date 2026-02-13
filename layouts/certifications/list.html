@@ -1,0 +1,162 @@
+{{ define "main" }}
+<article class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <header class="mb-12 text-center">
+    {{ with .Title }}
+    <h1 class="text-3xl font-bold text-neutral-800 dark:text-neutral-200 mb-4">
+      {{ . }}
+    </h1>
+    {{ end }}
+    {{ with (.Description | default .Params.description) }}
+    <p class="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
+      {{ . }}
+    </p>
+    {{ end }}
+    {{ with .Pages }}
+    <p class="mt-2 text-sm text-neutral-500 dark:text-neutral-500">
+      {{ len . }} {{ if eq (len .) 1 }}certification{{ else }}certifications{{ end }}
+    </p>
+    {{ end }}
+  </header>
+
+  {{ $pages := .Pages }}
+  {{ if $pages }}
+  
+  <!-- Group certifications by issuer -->
+  {{ $microsoftCerts := where $pages "Params.issuer" "Microsoft" }}
+  {{ $awsCerts := where $pages "Params.issuer" "AWS" }}
+  
+  <div class="w-full max-w-none space-y-12">
+    
+    <!-- Microsoft Certifications Section -->
+    {{ if $microsoftCerts }}
+    <section id="microsoft">
+      <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200 mb-6 flex items-center gap-3">
+        <span class="inline-flex items-center px-3 py-1 rounded-md text-sm font-medium" style="background-color: rgba(0, 120, 212, 0.1); color: #005A9E;">Microsoft</span>
+        <span class="text-base font-normal text-neutral-500 dark:text-neutral-400">{{ len $microsoftCerts }} {{ if eq (len $microsoftCerts) 1 }}certification{{ else }}certifications{{ end }}</span>
+      </h2>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
+        {{ range $microsoftCerts.ByDate.Reverse }}
+        {{ partial "certification-card.html" . }}
+        {{ end }}
+      </div>
+    </section>
+    {{ end }}
+    
+    <!-- AWS Certifications Section -->
+    {{ if $awsCerts }}
+    <section id="aws">
+      <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200 mb-6 flex items-center gap-3">
+        <span class="inline-flex items-center px-3 py-1 rounded-md text-sm font-medium" style="background-color: rgba(255, 153, 0, 0.1); color: #B36B00;">AWS</span>
+        <span class="text-base font-normal text-neutral-500 dark:text-neutral-400">{{ len $awsCerts }} {{ if eq (len $awsCerts) 1 }}certification{{ else }}certifications{{ end }}</span>
+      </h2>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
+        {{ range $awsCerts.ByDate.Reverse }}
+        {{ partial "certification-card.html" . }}
+        {{ end }}
+      </div>
+    </section>
+    {{ end }}
+    
+  </div>
+  {{ else }}
+  <p class="text-neutral-500 dark:text-neutral-400 text-center">No certifications found.</p>
+  {{ end }}
+</article>
+{{ end }}
+
+{{ define "partials/certification-card.html" }}
+<article class="flex flex-col rounded-lg overflow-hidden bg-white/70 dark:bg-neutral-900/40 shadow-sm hover:shadow-md transition-all duration-200 border border-neutral-200/50 dark:border-neutral-700/50 h-full">
+  
+  <!-- Issuer Accent Bar -->
+  <div class="h-1 w-full" style="{{ if eq .Params.issuer `AWS` }}background: linear-gradient(to right, #FF9900, #F58529);{{ else if eq .Params.issuer `Microsoft` }}background: linear-gradient(to right, #0078D4, #00BCF2);{{ else }}background-color: #64748B;{{ end }}">
+  </div>
+
+  <div class="flex-1 p-6 flex flex-col gap-3">
+    
+    <!-- Top Meta Row: Badge (optional) + Issued Date -->
+    <div class="flex items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        {{ with .Params.badge_image }}
+        <img src="{{ . }}" class="w-10 h-10 rounded object-cover shrink-0" alt="Certification badge" loading="lazy">
+        {{ end }}
+        {{ with .Date }}
+        <div class="flex items-center gap-1.5 text-xs text-neutral-500 dark:text-neutral-500 whitespace-nowrap">
+          <svg class="w-3.5 h-3.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+          </svg>
+          {{ .Format "Jan 2, 2006" }}
+        </div>
+        {{ end }}
+      </div>
+    </div>
+
+    <!-- Title -->
+    <h3 class="text-lg md:text-xl font-semibold leading-snug text-neutral-900 dark:text-neutral-100">
+      {{ .Title }}
+    </h3>
+
+    <!-- Summary -->
+    {{ with .Summary }}
+    <p class="text-sm text-neutral-600 dark:text-neutral-400 line-clamp-2">
+      {{ . | plainify }}
+    </p>
+    {{ end }}
+
+    <!-- Credential ID (if present) -->
+    {{ with .Params.credential_id }}
+    {{ if ne . "" }}
+    <div class="text-xs text-neutral-500 dark:text-neutral-500 mt-1">
+      <span class="font-medium">Credential ID:</span> {{ . }}
+    </div>
+    {{ end }}
+    {{ end }}
+
+    <!-- Expiry Date (if present and not "Does not expire") -->
+    {{ with .Params.expiry_date }}
+    {{ if and (ne . "") (ne . "Does not expire") }}
+    <div class="flex items-center gap-1.5 text-xs text-neutral-600 dark:text-neutral-400 mt-1">
+      <svg class="w-3.5 h-3.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+      </svg>
+      <span>Expires: {{ dateFormat "Jan 2, 2006" . }}</span>
+    </div>
+    {{ end }}
+    {{ end }}
+  </div>
+
+  <!-- Action Strip -->
+  <div class="px-6 py-4 bg-neutral-50/60 dark:bg-neutral-900/30 mt-auto">
+    <div class="flex items-center gap-4">
+      <!-- Verify Button with trust signal -->
+      {{ with .Params.verification_url }}
+      {{ $verifyURL := urls.Parse . }}
+      <div class="flex flex-col gap-1">
+        <a href="{{ . }}" target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2">
+          <svg class="w-4 h-4 mr-1.5 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          Verify
+        </a>
+        {{ with $verifyURL.Host }}
+        <span class="text-xs text-neutral-500 dark:text-neutral-500 text-center">{{ . }}</span>
+        {{ end }}
+      </div>
+      {{ else }}
+      <span class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md text-neutral-400 dark:text-neutral-600 bg-neutral-200 dark:bg-neutral-800 cursor-not-allowed">
+        <svg class="w-4 h-4 mr-1.5 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        Verify
+      </span>
+      {{ end }}
+      
+      <!-- Details Link -->
+      <a href="{{ .RelPermalink }}"
+        class="text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:text-primary-600 dark:hover:text-primary-400 hover:underline transition-colors">
+        Details →
+      </a>
+    </div>
+  </div>
+</article>
+{{ end }}

@@ -61,6 +61,10 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
   cardViewScreenWidth = false
   layoutBackgroundBlur = false # only used when layout equals background
   disableHeroImageFilter = false # only used when layout equals hero
+  showFeaturedProjects = true  # Enable featured projects section
+
+# Social sharing image
+defaultSocialImage = "/img/social-card.jpg"
 
 [article]
   showDate = true
@@ -150,11 +154,21 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
   # domain = "llama.yoursite.com"
 
 [umamiAnalytics]
-  # websiteid = "ABC12345"
-  # domain = "llama.yoursite.com"
-  # dataDomains = "yoursite.com,yoursite2.com"
-  # scriptName = ""
-  # enableTrackEvent = true
+  # TODO: Sign up at https://umami.is or self-host Umami
+  # Then add your website ID here to enable privacy-friendly analytics
+  # websiteid = "YOUR-WEBSITE-ID-HERE"
+  # 
+  # Optional: Use custom Umami domain (default: analytics.umami.is)
+  # domain = "analytics.yourdomain.com"
+  # 
+  # Optional: Track specific domains only
+  # dataDomains = "yourdomain.com"
+  # 
+  # Optional: Custom script name
+  # scriptName = "script.js"
+  # 
+  # Optional: Enable custom event tracking
+  enableTrackEvent = true
 
 [selineAnalytics]
   # token = "XXXXXX"

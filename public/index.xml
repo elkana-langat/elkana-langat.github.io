@@ -2,31 +2,111 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Elkana Lang&#39;at</title>
-    <link>http://localhost:1313/</link>
+    <link>http://localhost:36129/</link>
     <description>Recent content on Elkana Lang&#39;at</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>elkanahlangatt@gmail.com (Elkana Lang&#39;at)</managingEditor>
     <webMaster>elkanahlangatt@gmail.com (Elkana Lang&#39;at)</webMaster>
     <copyright>© 2026 Elkana Lang&#39;at</copyright>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 09 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:36129/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Microsoft Security, Compliance, and Identity Fundamentals (SC-900)</title>
+      <link>http://localhost:36129/certifications/sc-900/</link>
+      <pubDate>Fri, 09 May 2025 00:00:00 +0000</pubDate>
+      <author>elkanahlangatt@gmail.com (Elkana Lang&#39;at)</author>
+      <guid>http://localhost:36129/certifications/sc-900/</guid>
+      <description>Microsoft certification validating foundational knowledge of security, compliance, and identity concepts across Microsoft cloud services.</description>
+      
+    </item>
+    
+    <item>
+      <title>AWS Certified Cloud Practitioner</title>
+      <link>http://localhost:36129/certifications/aws-certified-cloud-practitioner/</link>
+      <pubDate>Thu, 20 Mar 2025 00:00:00 +0000</pubDate>
+      <author>elkanahlangatt@gmail.com (Elkana Lang&#39;at)</author>
+      <guid>http://localhost:36129/certifications/aws-certified-cloud-practitioner/</guid>
+      <description>AWS certification validating foundational knowledge of AWS Cloud services, security, architecture, and pricing.</description>
+      
+    </item>
+    
+    <item>
+      <title>Least-Privilege IAM Patterns: From Theory to Practice</title>
+      <link>http://localhost:36129/blog/least-privilege-iam-patterns/</link>
+      <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
+      <author>elkanahlangatt@gmail.com (Elkana Lang&#39;at)</author>
+      <guid>http://localhost:36129/blog/least-privilege-iam-patterns/</guid>
+      <description>A comprehensive guide to implementing least-privilege IAM across cloud platforms, covering policy design patterns, common pitfalls, and practical checklists.</description>
+      
+    </item>
+    
+    <item>
+      <title>AWS IAM Automation Framework</title>
+      <link>http://localhost:36129/projects/aws-iam-automation/</link>
+      <pubDate>Fri, 15 Nov 2024 00:00:00 +0000</pubDate>
+      <author>elkanahlangatt@gmail.com (Elkana Lang&#39;at)</author>
+      <guid>http://localhost:36129/projects/aws-iam-automation/</guid>
+      <description>Automated IAM policy lifecycle management at scale using Terraform, reducing policy drift and improving least-privilege enforcement across 50+ AWS accounts.</description>
+      
+    </item>
+    
+    <item>
+      <title>Zero Trust Azure Landing Zone</title>
+      <link>http://localhost:36129/projects/zero-trust-azure-landing-zone/</link>
+      <pubDate>Fri, 20 Sep 2024 00:00:00 +0000</pubDate>
+      <author>elkanahlangatt@gmail.com (Elkana Lang&#39;at)</author>
+      <guid>http://localhost:36129/projects/zero-trust-azure-landing-zone/</guid>
+      <description>Designed and deployed a Zero Trust network architecture for Azure cloud platform serving 300+ users, implementing microsegmentation, identity-based access, and continuous verification.</description>
+      
+    </item>
+    
+    <item>
+      <title>Compliance-Driven DevSecOps Pipeline</title>
+      <link>http://localhost:36129/projects/compliance-devsecops-pipeline/</link>
+      <pubDate>Wed, 10 Jul 2024 00:00:00 +0000</pubDate>
+      <author>elkanahlangatt@gmail.com (Elkana Lang&#39;at)</author>
+      <guid>http://localhost:36129/projects/compliance-devsecops-pipeline/</guid>
+      <description>Built automated security and compliance pipeline for CI/CD workflows, achieving continuous SOC 2 and ISO 27001 compliance with zero manual audit evidence collection.</description>
+      
+    </item>
+    
+    <item>
+      <title>Microsoft Azure Data Fundamentals (DP-900)</title>
+      <link>http://localhost:36129/certifications/dp-900/</link>
+      <pubDate>Tue, 04 Apr 2023 00:00:00 +0000</pubDate>
+      <author>elkanahlangatt@gmail.com (Elkana Lang&#39;at)</author>
+      <guid>http://localhost:36129/certifications/dp-900/</guid>
+      <description>Microsoft certification demonstrating foundational knowledge of core data concepts and Azure data services.</description>
+      
+    </item>
+    
+    <item>
+      <title>Microsoft Azure Fundamentals (AZ-900)</title>
+      <link>http://localhost:36129/certifications/az-900/</link>
+      <pubDate>Mon, 27 Feb 2023 00:00:00 +0000</pubDate>
+      <author>elkanahlangatt@gmail.com (Elkana Lang&#39;at)</author>
+      <guid>http://localhost:36129/certifications/az-900/</guid>
+      <description>Microsoft certification demonstrating foundational knowledge of Azure cloud services, core solutions, and management tools.</description>
+      
+    </item>
     
     <item>
       <title>About</title>
-      <link>http://localhost:1313/about/</link>
+      <link>http://localhost:36129/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>elkanahlangatt@gmail.com (Elkana Lang&#39;at)</author>
-      <guid>http://localhost:1313/about/</guid>
+      <guid>http://localhost:36129/about/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Contact</title>
-      <link>http://localhost:1313/contact/</link>
+      <link>http://localhost:36129/contact/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>elkanahlangatt@gmail.com (Elkana Lang&#39;at)</author>
-      <guid>http://localhost:1313/contact/</guid>
+      <guid>http://localhost:36129/contact/</guid>
       <description></description>
       
     </item>

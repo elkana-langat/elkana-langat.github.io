@@ -2,14 +2,224 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Elkana Lang&#39;at</title>
-    <link>http://localhost:1313/tags/</link>
+    <link>http://localhost:36129/tags/</link>
     <description>Recent content in Tags on Elkana Lang&#39;at</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>elkanahlangatt@gmail.com (Elkana Lang&#39;at)</managingEditor>
     <webMaster>elkanahlangatt@gmail.com (Elkana Lang&#39;at)</webMaster>
     <copyright>© 2026 Elkana Lang&#39;at</copyright>
-    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 09 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:36129/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Certification</title>
+      <link>http://localhost:36129/tags/certification/</link>
+      <pubDate>Fri, 09 May 2025 00:00:00 +0000</pubDate>
+      <author>elkanahlangatt@gmail.com (Elkana Lang&#39;at)</author>
+      <guid>http://localhost:36129/tags/certification/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Compliance</title>
+      <link>http://localhost:36129/tags/compliance/</link>
+      <pubDate>Fri, 09 May 2025 00:00:00 +0000</pubDate>
+      <author>elkanahlangatt@gmail.com (Elkana Lang&#39;at)</author>
+      <guid>http://localhost:36129/tags/compliance/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Identity</title>
+      <link>http://localhost:36129/tags/identity/</link>
+      <pubDate>Fri, 09 May 2025 00:00:00 +0000</pubDate>
+      <author>elkanahlangatt@gmail.com (Elkana Lang&#39;at)</author>
+      <guid>http://localhost:36129/tags/identity/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Microsoft</title>
+      <link>http://localhost:36129/tags/microsoft/</link>
+      <pubDate>Fri, 09 May 2025 00:00:00 +0000</pubDate>
+      <author>elkanahlangatt@gmail.com (Elkana Lang&#39;at)</author>
+      <guid>http://localhost:36129/tags/microsoft/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Security</title>
+      <link>http://localhost:36129/tags/security/</link>
+      <pubDate>Fri, 09 May 2025 00:00:00 +0000</pubDate>
+      <author>elkanahlangatt@gmail.com (Elkana Lang&#39;at)</author>
+      <guid>http://localhost:36129/tags/security/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Aws</title>
+      <link>http://localhost:36129/tags/aws/</link>
+      <pubDate>Thu, 20 Mar 2025 00:00:00 +0000</pubDate>
+      <author>elkanahlangatt@gmail.com (Elkana Lang&#39;at)</author>
+      <guid>http://localhost:36129/tags/aws/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Cloud</title>
+      <link>http://localhost:36129/tags/cloud/</link>
+      <pubDate>Thu, 20 Mar 2025 00:00:00 +0000</pubDate>
+      <author>elkanahlangatt@gmail.com (Elkana Lang&#39;at)</author>
+      <guid>http://localhost:36129/tags/cloud/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Azure</title>
+      <link>http://localhost:36129/tags/azure/</link>
+      <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
+      <author>elkanahlangatt@gmail.com (Elkana Lang&#39;at)</author>
+      <guid>http://localhost:36129/tags/azure/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Best-Practices</title>
+      <link>http://localhost:36129/tags/best-practices/</link>
+      <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
+      <author>elkanahlangatt@gmail.com (Elkana Lang&#39;at)</author>
+      <guid>http://localhost:36129/tags/best-practices/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Iam</title>
+      <link>http://localhost:36129/tags/iam/</link>
+      <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
+      <author>elkanahlangatt@gmail.com (Elkana Lang&#39;at)</author>
+      <guid>http://localhost:36129/tags/iam/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Least-Privilege</title>
+      <link>http://localhost:36129/tags/least-privilege/</link>
+      <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
+      <author>elkanahlangatt@gmail.com (Elkana Lang&#39;at)</author>
+      <guid>http://localhost:36129/tags/least-privilege/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Automation</title>
+      <link>http://localhost:36129/tags/automation/</link>
+      <pubDate>Fri, 15 Nov 2024 00:00:00 +0000</pubDate>
+      <author>elkanahlangatt@gmail.com (Elkana Lang&#39;at)</author>
+      <guid>http://localhost:36129/tags/automation/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Terraform</title>
+      <link>http://localhost:36129/tags/terraform/</link>
+      <pubDate>Fri, 15 Nov 2024 00:00:00 +0000</pubDate>
+      <author>elkanahlangatt@gmail.com (Elkana Lang&#39;at)</author>
+      <guid>http://localhost:36129/tags/terraform/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Landing-Zone</title>
+      <link>http://localhost:36129/tags/landing-zone/</link>
+      <pubDate>Fri, 20 Sep 2024 00:00:00 +0000</pubDate>
+      <author>elkanahlangatt@gmail.com (Elkana Lang&#39;at)</author>
+      <guid>http://localhost:36129/tags/landing-zone/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Networking</title>
+      <link>http://localhost:36129/tags/networking/</link>
+      <pubDate>Fri, 20 Sep 2024 00:00:00 +0000</pubDate>
+      <author>elkanahlangatt@gmail.com (Elkana Lang&#39;at)</author>
+      <guid>http://localhost:36129/tags/networking/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Zero-Trust</title>
+      <link>http://localhost:36129/tags/zero-trust/</link>
+      <pubDate>Fri, 20 Sep 2024 00:00:00 +0000</pubDate>
+      <author>elkanahlangatt@gmail.com (Elkana Lang&#39;at)</author>
+      <guid>http://localhost:36129/tags/zero-trust/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Ci-Cd</title>
+      <link>http://localhost:36129/tags/ci-cd/</link>
+      <pubDate>Wed, 10 Jul 2024 00:00:00 +0000</pubDate>
+      <author>elkanahlangatt@gmail.com (Elkana Lang&#39;at)</author>
+      <guid>http://localhost:36129/tags/ci-cd/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Devsecops</title>
+      <link>http://localhost:36129/tags/devsecops/</link>
+      <pubDate>Wed, 10 Jul 2024 00:00:00 +0000</pubDate>
+      <author>elkanahlangatt@gmail.com (Elkana Lang&#39;at)</author>
+      <guid>http://localhost:36129/tags/devsecops/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Iso27001</title>
+      <link>http://localhost:36129/tags/iso27001/</link>
+      <pubDate>Wed, 10 Jul 2024 00:00:00 +0000</pubDate>
+      <author>elkanahlangatt@gmail.com (Elkana Lang&#39;at)</author>
+      <guid>http://localhost:36129/tags/iso27001/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Soc2</title>
+      <link>http://localhost:36129/tags/soc2/</link>
+      <pubDate>Wed, 10 Jul 2024 00:00:00 +0000</pubDate>
+      <author>elkanahlangatt@gmail.com (Elkana Lang&#39;at)</author>
+      <guid>http://localhost:36129/tags/soc2/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Data</title>
+      <link>http://localhost:36129/tags/data/</link>
+      <pubDate>Tue, 04 Apr 2023 00:00:00 +0000</pubDate>
+      <author>elkanahlangatt@gmail.com (Elkana Lang&#39;at)</author>
+      <guid>http://localhost:36129/tags/data/</guid>
+      <description></description>
+      
+    </item>
     
   </channel>
 </rss>
