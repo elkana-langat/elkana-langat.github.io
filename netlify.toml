@@ -1,16 +1,14 @@
-# Netlify configuration for Hugo Blowfish portfolio
-# https://docs.netlify.com/configure-builds/file-based-configuration/
-
 [build]
+  command = "hugo --minify --gc --printPathWarnings"
   publish = "public"
-  command = "hugo --minify --gc"
 
 [build.environment]
   HUGO_VERSION = "0.155.3"
   HUGO_ENABLEGITINFO = "true"
-
-[context.production.environment]
   HUGO_ENV = "production"
+
+[context.production]
+  command = "hugo --minify --gc --printPathWarnings"
 
 [context.deploy-preview]
   command = "hugo --minify --gc --buildFuture -b $DEPLOY_PRIME_URL"
@@ -18,34 +16,56 @@
 [context.branch-deploy]
   command = "hugo --minify --gc -b $DEPLOY_PRIME_URL"
 
-[[redirects]]
-  from = "/index.xml"
-  to = "/feed.xml"
-  status = 301
-
 # Security Headers
 [[headers]]
   for = "/*"
   [headers.values]
-    # Content Security Policy (CSP)
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://analytics.umami.is; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://analytics.umami.is"
+    # Content Security Policy
+    # No external resources loaded (no Umami, no Google Fonts)
+    Content-Security-Policy = """
+      default-src 'self'; \
+      script-src 'self' 'unsafe-inline'; \
+      style-src 'self' 'unsafe-inline'; \
+      img-src 'self' data: https:; \
+      font-src 'self' data:; \
+      connect-src 'self'; \
+      frame-ancestors 'self'; \
+      base-uri 'self'; \
+      form-action 'self'; \
+      upgrade-insecure-requests
+    """
     
     # Prevent MIME type sniffing
     X-Content-Type-Options = "nosniff"
     
-    # Referrer Policy
+    # Control referrer information
     Referrer-Policy = "strict-origin-when-cross-origin"
     
-    # X-Frame-Options (defense in depth with CSP frame-ancestors)
+    # Clickjacking protection
     X-Frame-Options = "SAMEORIGIN"
     
-    # Permissions Policy (minimal permissions for static site)
-    Permissions-Policy = "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
-    
-    # Strict Transport Security (HTTPS only)
+    # HSTS - Force HTTPS
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    
+    # Permissions Policy - Disable unnecessary browser features
+    Permissions-Policy = """
+      camera=(), \
+      microphone=(), \
+      geolocation=(), \
+      interest-cohort=(), \
+      payment=(), \
+      usb=(), \
+      magnetometer=(), \
+      gyroscope=(), \
+      accelerometer=()
+    """
 
-# Cache static assets for 1 year
+# Cache static assets for 1 year (immutable)
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
 [[headers]]
   for = "/css/*"
   [headers.values]
@@ -57,16 +77,39 @@
     Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
-  for = "/img/*"
+  for = "/assets/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
-  for = "/android-chrome-*.png"
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Fingerprinted assets (Hugo's resource processing with hash)
+[[headers]]
+  for = "/*_hu*.webp"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
-  for = "/*.ico"
+  for = "/*_hu*.jpg"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*_hu*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Short cache for HTML (allow quick updates)
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Redirects (if needed in future)
+# [[redirects]]
+#   from = "/old-path"
+#   to = "/new-path"
+#   status = 301

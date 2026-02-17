@@ -1,0 +1,113 @@
+{{ define "main" }}
+<article class="max-w-4xl mx-auto">
+
+    <!-- Credential Header -->
+    <div
+        class="rounded-lg overflow-hidden bg-white/70 dark:bg-neutral-900/40 shadow-sm border border-neutral-200/50 dark:border-neutral-700/50 mb-8">
+
+        <!-- Issuer Accent Bar -->
+        <div class="h-1 w-full"
+            style="{{ if eq .Params.issuer `AWS` }}background: linear-gradient(to right, #FF9900, #F58529);{{ else if eq .Params.issuer `Microsoft` }}background: linear-gradient(to right, #0078D4, #00BCF2);{{ else }}background-color: #64748B;{{ end }}">
+        </div>
+
+        <div class="p-6 md:p-8">
+            <div class="flex flex-col md:flex-row gap-6">
+
+                <!-- Badge Thumbnail (if present) -->
+                {{ with .Params.badge_image }}
+                <div class="shrink-0">
+                    <img src="{{ . }}" class="w-24 h-24 rounded-lg object-cover shadow-sm" alt="Certification badge"
+                        loading="lazy">
+                </div>
+                {{ end }}
+
+                <!-- Credential Info -->
+                <div class="flex-1 space-y-4">
+
+                    <!-- Title -->
+                    <h1 class="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-neutral-100 leading-tight">
+                        {{ .Title }}
+                    </h1>
+
+                    <!-- Meta Row: Issuer + Dates -->
+                    <div class="flex flex-wrap items-center gap-4 text-sm">
+
+                        <!-- Issuer Badge -->
+                        {{ with .Params.issuer }}
+                        <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium"
+                            style="{{ if eq . `AWS` }}background-color: rgba(255, 153, 0, 0.1); color: #B36B00;{{ else if eq . `Microsoft` }}background-color: rgba(0, 120, 212, 0.1); color: #005A9E;{{ else }}background-color: rgba(100, 116, 139, 0.1); color: #475569;{{ end }}">
+                            {{ . }}
+                        </span>
+                        {{ end }}
+
+                        <!-- Issued Date -->
+                        {{ with .Date }}
+                        <div class="flex items-center gap-1.5 text-neutral-600 dark:text-neutral-400">
+                            <svg class="w-4 h-4 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                            <span>Issued: {{ .Format "Jan 2, 2006" }}</span>
+                        </div>
+                        {{ end }}
+
+                        <!-- Expiry Date (only if present and not "Does not expire") -->
+                        {{ with .Params.expiry_date }}
+                        {{ if and (ne . "") (ne . "Does not expire") }}
+                        <div class="flex items-center gap-1.5 text-neutral-600 dark:text-neutral-400">
+                            <svg class="w-4 h-4 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span>Expires: {{ dateFormat "Jan 2, 2006" . }}</span>
+                        </div>
+                        {{ end }}
+                        {{ end }}
+
+                    </div>
+
+                    <!-- Summary -->
+                    {{ with .Summary }}
+                    <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed">
+                        {{ . | plainify }}
+                    </p>
+                    {{ end }}
+
+                    <!-- Verification CTA -->
+                    {{ with .Params.verification_url }}
+                    {{ $verifyURL := urls.Parse . }}
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 pt-2">
+                        <a href="{{ . }}" target="_blank" rel="noopener noreferrer"
+                            class="inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2">
+                            <svg class="w-4 h-4 mr-2 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            Verify Credential
+                        </a>
+                        {{ with $verifyURL.Host }}
+                        <span class="text-xs text-neutral-500 dark:text-neutral-500">
+                            Verified by {{ . }}
+                        </span>
+                        {{ end }}
+                    </div>
+                    {{ end }}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Content (from markdown body) -->
+    {{ if .Content }}
+    <div class="prose dark:prose-invert max-w-none">
+        {{ .Content }}
+    </div>
+    {{ end }}
+
+</article>
+{{ end }}

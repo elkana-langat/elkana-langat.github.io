@@ -11,7 +11,7 @@ issuer = "AWS"
 credential_id = ""
 verification_url = "https://www.credly.com/badges/be47f6f5-f31d-4b8f-85bd-4ab4db173405/public_url"
 expiry_date = "2028-03-20"
-badge_image = ""
+badge_image = "/img/badges/aws-ccp.png"
 
 # Blowfish-specific
 showHero = false
