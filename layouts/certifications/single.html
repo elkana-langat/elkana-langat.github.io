@@ -16,8 +16,15 @@
                 <!-- Badge Thumbnail (if present) -->
                 {{ with .Params.badge_image }}
                 <div class="shrink-0">
-                    <img src="{{ . | relURL }}" class="w-24 h-24 rounded-lg object-cover shadow-sm" alt="Certification badge"
-                        loading="lazy">
+                    {{ $badge := resources.Get . }}
+                    {{ if $badge }}
+                      {{ if ne $badge.MediaType.SubType "svg" }}
+                        {{ $badge = $badge | resources.Fingerprint }}
+                      {{ end }}
+                      <img src="{{ $badge.RelPermalink }}" class="w-24 h-24 rounded-lg object-cover shadow-sm" alt="Certification badge" loading="lazy">
+                    {{ else }}
+                      <img src="{{ . | relURL }}" class="w-24 h-24 rounded-lg object-cover shadow-sm" alt="Certification badge" loading="lazy">
+                    {{ end }}
                 </div>
                 {{ end }}
 

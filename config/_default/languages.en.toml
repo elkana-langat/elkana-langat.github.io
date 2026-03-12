@@ -11,7 +11,7 @@ title = "Elkana Lang'at"
   dateFormat = "2 January 2006"
   # logo = "img/logo.png"
   # secondaryLogo = "img/secondary-logo.png"
-  # description = "My awesome website"
+  description = "Portfolio of Elkana Lang'at, a Cloud Security & IT Professional specializing in AWS/Azure IAM, DevSecOps pipelines, and Zero Trust architecture."
   # copyright = "Copy, _right?_ :thinking_face:"
 
 [params.author]
