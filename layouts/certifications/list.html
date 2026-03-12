@@ -31,7 +31,7 @@
     {{ if $microsoftCerts }}
     <section id="microsoft">
       <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200 mb-6 flex items-center gap-3">
-        <span class="inline-flex items-center px-3 py-1 rounded-md text-sm font-medium" style="background-color: rgba(0, 120, 212, 0.1); color: #005A9E;">Microsoft</span>
+        <span class="inline-flex items-center px-3 py-1 rounded-md text-sm font-medium bg-[#0078D4]/10 text-[#005A9E] dark:text-[#3399FF]">Microsoft</span>
         <span class="text-base font-normal text-neutral-500 dark:text-neutral-400">{{ len $microsoftCerts }} {{ if eq (len $microsoftCerts) 1 }}certification{{ else }}certifications{{ end }}</span>
       </h2>
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
@@ -46,7 +46,7 @@
     {{ if $awsCerts }}
     <section id="aws">
       <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200 mb-6 flex items-center gap-3">
-        <span class="inline-flex items-center px-3 py-1 rounded-md text-sm font-medium" style="background-color: rgba(255, 153, 0, 0.1); color: #B36B00;">AWS</span>
+        <span class="inline-flex items-center px-3 py-1 rounded-md text-sm font-medium bg-[#FF9900]/10 text-[#B36B00] dark:text-[#FFB347]">AWS</span>
         <span class="text-base font-normal text-neutral-500 dark:text-neutral-400">{{ len $awsCerts }} {{ if eq (len $awsCerts) 1 }}certification{{ else }}certifications{{ end }}</span>
       </h2>
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
@@ -140,7 +140,7 @@
       {{ with .Params.verification_url }}
       {{ $verifyURL := urls.Parse . }}
       <div class="flex flex-col gap-1">
-        <a href="{{ . }}" target="_blank" rel="noopener noreferrer"
+        <a href="{{ . }}" aria-label="Verify {{ $.Title }}" target="_blank" rel="noopener noreferrer"
           class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2">
           <svg class="w-4 h-4 mr-1.5 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -152,7 +152,7 @@
         {{ end }}
       </div>
       {{ else }}
-      <span class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md text-neutral-400 dark:text-neutral-600 bg-neutral-200 dark:bg-neutral-800 cursor-not-allowed">
+      <span aria-label="Verification unavailable for {{ .Title }}" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md text-neutral-400 dark:text-neutral-600 bg-neutral-200 dark:bg-neutral-800 cursor-not-allowed">
         <svg class="w-4 h-4 mr-1.5 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
         </svg>
@@ -161,7 +161,7 @@
       {{ end }}
       
       <!-- Details Link -->
-      <a href="{{ .RelPermalink }}"
+      <a href="{{ .RelPermalink }}" aria-label="View details for {{ .Title }}"
         class="text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:text-primary-600 dark:hover:text-primary-400 hover:underline transition-colors">
         Details →
       </a>
