@@ -16,7 +16,7 @@
                 <!-- Badge Thumbnail (if present) -->
                 {{ with .Params.badge_image }}
                 <div class="shrink-0">
-                    <img src="{{ . }}" class="w-24 h-24 rounded-lg object-cover shadow-sm" alt="Certification badge"
+                    <img src="{{ . | relURL }}" class="w-24 h-24 rounded-lg object-cover shadow-sm" alt="Certification badge"
                         loading="lazy">
                 </div>
                 {{ end }}
