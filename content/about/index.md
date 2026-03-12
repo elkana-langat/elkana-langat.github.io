@@ -1,7 +1,9 @@
 +++
 title = "About"
+date = 2026-03-12
 description = "Cloud Security professional specializing in IAM, AWS/Azure security, and compliance automation"
 showTableOfContents = true
+layout = "profile"
 +++
 
 # About Me
