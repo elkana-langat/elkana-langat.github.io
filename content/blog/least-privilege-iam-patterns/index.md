@@ -6,7 +6,7 @@ description = "Practical patterns and anti-patterns for implementing least-privi
 summary = "A comprehensive guide to implementing least-privilege IAM across cloud platforms, covering policy design patterns, common pitfalls, and practical checklists."
 tags = ["iam", "security", "aws", "azure", "least-privilege", "best-practices"]
 categories = ["security", "cloud"]
-author = "Elk ana Lang'at"
+author = "Elkana Lang'at"
 series = []
 
 # Blowfish article params
